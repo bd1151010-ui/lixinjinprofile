@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
@@ -188,7 +187,7 @@
             position: relative;
         }
 
-        /* 當你放入 <img> */
+        /* 當你放入嵌入圖片時會自動填滿相框 */
         .photo-inner img {
             position: absolute;
             inset: 0;
@@ -198,12 +197,6 @@
             border-radius: 15px;
         }
 
-<div class="photo-frame">
-    <div class="photo-inner">
-        <!-- Replace PASTE_YOUR_BASE64_STRING_HERE with your actual Base64 text -->
-        <img src="123123.jpg" alt="李昕衿的個人照片">
-    </div>
-</div>
         .photo-icon-circle {
             width: 52px;
             height: 52px;
@@ -583,14 +576,14 @@
             <div class="hero-card">
                 
                 <!-- =========================================================
-                     【個人照片專屬位置】
-                     使用方法：把你的照片放在同一個資料夾（例如命名為 photo.jpg），
-                     然後將下方 <img ...> 的註解符號移除即可顯示！
+                     【直接內嵌圖片的個人照片專屬位置】
+                     使用方法：將你的圖片轉成 Base64 字串後，取消下方 <img> 註解，
+                     並把 PASTE_YOUR_BASE64_STRING_HERE 替換成你的 Base64 編碼即可！
                      ========================================================= -->
                 <div class="photo-frame">
                     <div class="photo-inner">
-                        <!-- 👇 取消下面這行的註解，並把 src 換成你的照片檔名 👇 -->
-                        <!-- <123123.jpg> -->
+                        <!-- 👇 取消下面這行的註解，並貼上你的 Base64 圖片字串 👇 -->
+                        <!-- <img src="123123.jpg" alt="123123.jpg"> -->
 
                         <!-- 尚未放入照片前的亮麗提示畫面 -->
                         <div class="photo-icon-circle">
@@ -600,7 +593,7 @@
                             </svg>
                         </div>
                         <div class="photo-hint-title">個人照片位置</div>
-                        <div class="photo-hint-sub">將照片放入此相框<br>展現最亮麗的自己</div>
+                        <div class="photo-hint-sub">將 Base64 圖片嵌入此處<br>展現最亮麗的自己</div>
                     </div>
                 </div>
 
