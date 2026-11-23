@@ -4,15 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>李昕衿 | 個人主頁</title>
-    <!-- 載入乾淨易讀的中英文字體 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
 
     <style>
-        /* =========================================
-           1. 亮麗色彩變數與基礎設定 (純 CSS)
-           ========================================= */
         :root {
             --bg-sunlit: #FFFDF9;
             --surface-white: #FFFFFF;
@@ -39,7 +35,6 @@
         body {
             font-family: 'Inter', 'Noto Sans TC', sans-serif;
             background-color: var(--bg-sunlit);
-            /* 亮麗柔和的陽光漸層背景 */
             background-image: 
                 radial-gradient(circle at 12% 10%, rgba(255, 184, 0, 0.14) 0%, transparent 40%),
                 radial-gradient(circle at 88% 18%, rgba(255, 94, 126, 0.14) 0%, transparent 42%),
@@ -56,9 +51,6 @@
             color: inherit;
         }
 
-        /* =========================================
-           2. 精簡頂部導覽列
-           ========================================= */
         header {
             position: sticky;
             top: 0;
@@ -109,9 +101,6 @@
             transition: color 0.2s ease;
         }
 
-        /* =========================================
-           3. 主要內容容器與區塊通用樣式
-           ========================================= */
         main {
             max-width: 920px;
             width: 100%;
@@ -145,9 +134,6 @@
             display: inline-block;
         }
 
-        /* =========================================
-           4. HERO & 個人專屬照片框
-           ========================================= */
         .hero-card {
             background: var(--surface-white);
             border-radius: 28px;
@@ -160,7 +146,6 @@
             align-items: center;
         }
 
-        /* 個人照片專屬相框 */
         .photo-frame {
             width: 100%;
             aspect-ratio: 4 / 5;
@@ -175,54 +160,22 @@
             width: 100%;
             height: 100%;
             border-radius: 17px;
-            background: linear-gradient(160deg, #FFF5F7 0%, #FFFBEB 50%, #F0F9FF 100%);
-            border: 2px dashed rgba(255, 94, 126, 0.4);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 1rem;
+            background: #FFF5F7;
             overflow: hidden;
             position: relative;
         }
 
-        /* 當你放入嵌入圖片時會自動填滿相框 */
         .photo-inner img {
             position: absolute;
             inset: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
+            object-position: center 20%;
             border-radius: 15px;
+            display: block;
         }
 
-        .photo-icon-circle {
-            width: 52px;
-            height: 52px;
-            border-radius: 50%;
-            background: #FFFFFF;
-            color: var(--coral-pink);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 0.75rem;
-            box-shadow: 0 4px 12px rgba(255, 94, 126, 0.15);
-        }
-
-        .photo-hint-title {
-            font-size: 0.95rem;
-            font-weight: 700;
-            color: var(--text-dark);
-        }
-
-        .photo-hint-sub {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            margin-top: 0.25rem;
-        }
-
-        /* 右側個人簡介與興趣 */
         .dept-badge {
             display: inline-flex;
             align-items: center;
@@ -261,7 +214,6 @@
             margin-bottom: 1.4rem;
         }
 
-        /* 4 項日常興趣膠囊標籤 */
         .interest-list {
             display: flex;
             flex-wrap: wrap;
@@ -288,9 +240,6 @@
         .pill-music { background: #E0F2FE; color: #0369A1; }
         .pill-walk { background: #D1FAE5; color: #047857; }
 
-        /* =========================================
-           5. 核心技能 (2 張亮麗並排卡片)
-           ========================================= */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -356,7 +305,6 @@
             border-radius: 99px;
         }
 
-        /* 亮色系程式碼展示框 */
         .code-window {
             background: #1E293B;
             color: #E2E8F0;
@@ -384,7 +332,6 @@
         .c-key { color: #FBBF24; }
         .c-str { color: #34D399; }
 
-        /* 亮色系微積分展示框 */
         .math-window {
             background: linear-gradient(135deg, #FFF5F7 0%, #FFFBEB 100%);
             border: 1px solid rgba(255, 94, 126, 0.2);
@@ -412,9 +359,6 @@
             margin-bottom: 0.4rem;
         }
 
-        /* =========================================
-           6. 聯絡方式 (3 張清爽卡片)
-           ========================================= */
         .contact-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -476,7 +420,6 @@
             border-radius: 10px;
             color: var(--text-dark);
             word-break: break-all;
-            /* 點擊文字即可全選，方便無 JS 環境複製 */
             user-select: all;
             -webkit-user-select: all;
         }
@@ -503,9 +446,6 @@
         .btn-line { background: linear-gradient(135deg, #10B981, #059669); }
         .btn-ig { background: linear-gradient(135deg, var(--coral-pink), #EC4899); }
 
-        /* =========================================
-           7. 極簡頁尾
-           ========================================= */
         footer {
             text-align: center;
             padding: 1.75rem 1.5rem;
@@ -515,9 +455,6 @@
             background: rgba(255, 255, 255, 0.6);
         }
 
-        /* =========================================
-           8. 響應式手機版適配 (RWD)
-           ========================================= */
         @media (max-width: 768px) {
             .hero-card {
                 grid-template-columns: 1fr;
@@ -555,7 +492,6 @@
 </head>
 <body>
 
-    <!-- 頂部導覽列 -->
     <header>
         <div class="nav-container">
             <a href="#" class="brand">
@@ -571,33 +507,16 @@
     </header>
 
     <main>
-        <!-- 1. 關於我與個人照片專屬區塊 -->
         <section id="about">
             <div class="hero-card">
                 
-                <!-- =========================================================
-                     【直接內嵌圖片的個人照片專屬位置】
-                     使用方法：將你的圖片轉成 Base64 字串後，取消下方 <img> 註解，
-                     並把 PASTE_YOUR_BASE64_STRING_HERE 替換成你的 Base64 編碼即可！
-                     ========================================================= -->
+                <!-- 個人照片區塊：已設定為讀取同資料夾的 123123.jpg -->
                 <div class="photo-frame">
                     <div class="photo-inner">
-                        <!-- 👇 取消下面這行的註解，並貼上你的 Base64 圖片字串 👇 -->
-                        <!-- <img src="123123.jpg" alt="李昕衿的個人照片"> -->
-
-                        <!-- 尚未放入照片前的亮麗提示畫面 -->
-                        <div class="photo-icon-circle">
-                            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/>
-                                <circle cx="12" cy="13" r="3"/>
-                            </svg>
-                        </div>
-                        <div class="photo-hint-title">個人照片位置</div>
-                        <div class="photo-hint-sub">將 Base64 圖片嵌入此處<br>展現最亮麗的自己</div>
+                        <img src="123123.jpg" alt="李昕衿的個人照片">
                     </div>
                 </div>
 
-                <!-- 右側自我介紹與日常興趣 -->
                 <div>
                     <div class="dept-badge">
                         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
@@ -613,7 +532,6 @@
                         「喜歡簡單生活，也喜歡認真對待每一件事。」
                     </div>
 
-                    <!-- 4 項興趣標籤 -->
                     <div class="interest-list">
                         <span class="interest-pill pill-read">
                             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
@@ -636,7 +554,6 @@
             </div>
         </section>
 
-        <!-- 2. 核心技能區塊 -->
         <section id="skills">
             <h2 class="section-title">
                 <span class="title-accent"></span>
@@ -644,7 +561,6 @@
             </h2>
 
             <div class="skills-grid">
-                <!-- 技能 1：寫代碼 -->
                 <div class="skill-card">
                     <div class="skill-header">
                         <div class="skill-title-group">
@@ -673,7 +589,6 @@
                     </div>
                 </div>
 
-                <!-- 技能 2：微積分 -->
                 <div class="skill-card">
                     <div class="skill-header">
                         <div class="skill-title-group">
@@ -702,7 +617,6 @@
             </div>
         </section>
 
-        <!-- 3. 聯絡方式區塊 -->
         <section id="contact">
             <h2 class="section-title">
                 <span class="title-accent"></span>
@@ -710,7 +624,6 @@
             </h2>
 
             <div class="contact-grid">
-                <!-- Email -->
                 <div class="contact-card">
                     <div class="contact-top">
                         <div class="contact-icon ci-email">
@@ -725,7 +638,6 @@
                     <a href="mailto:BD1151010@mail.lit.edu.tw" class="contact-btn btn-email">發送信件</a>
                 </div>
 
-                <!-- Line ID -->
                 <div class="contact-card">
                     <div class="contact-top">
                         <div class="contact-icon ci-line">
@@ -740,7 +652,6 @@
                     <a href="https://line.me/ti/p/~LIXINJIN" target="_blank" rel="noopener noreferrer" class="contact-btn btn-line">開啟 Line</a>
                 </div>
 
-                <!-- Instagram -->
                 <div class="contact-card">
                     <div class="contact-top">
                         <div class="contact-icon ci-ig">
@@ -758,7 +669,6 @@
         </section>
     </main>
 
-    <!-- 極簡頁尾 -->
     <footer>
         © 2026 李昕衿 Li Xin-Jin · 黎明技術學院 數位多媒體系
     </footer>
